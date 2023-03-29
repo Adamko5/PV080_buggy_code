@@ -1,5 +1,3 @@
-import sys 
-import os
 import yaml
 import flask
 
@@ -10,11 +8,13 @@ def index():
     version = flask.request.args.get("urllib_version")
     url = flask.request.args.get("url")
     return fetch_website(version, url)
- 
+
+
 CONFIG = {"API_KEY": "771df488714111d39138eb60df756e6b"}
 class Person(object):
     def __init__(self, name):
         self.name = name
+
 
 def print_nametag(format_string, person):
     print(format_string.format(person=person))
@@ -27,7 +27,6 @@ def fetch_website(urllib_version, url):
  
     try: 
         http = urllib.PoolManager()
-        r = http.request('GET', url)
     except:
         print('Exception')
 
